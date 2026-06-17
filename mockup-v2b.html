@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chimes Crane Hire — Cranes 4 Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g: #279042; --gd: #1a6b2e; --n: #16335E; --nd: #0d2040;
+  --y: #FFB400; --bk: #080c08; --wh: #ffffff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);overflow-x:hidden}
+
+/* NAV */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(8,12,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(39,144,66,.2);transition:border-color .3s}
+#hdr.scrolled{border-bottom-color:rgba(39,144,66,.5)}
+.nw{max-width:1400px;margin:0 auto;padding:0 36px;height:68px;display:flex;align-items:center;gap:40px}
+.nlogo{flex-shrink:0;display:flex;align-items:center}
+.nlogo img{height:34px;filter:brightness(0) invert(1)}
+.nnav{flex:1;display:flex;justify-content:center;gap:4px}
+.nnav a{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:8px 14px;transition:color .2s}
+.nnav a:hover{color:var(--wh)}
+.nnav a.active{color:var(--y)}
+.nctas{display:flex;gap:12px;flex-shrink:0}
+.nb{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;text-decoration:none;transition:all .2s}
+.nb-out{border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.65)}
+.nb-out:hover{border-color:var(--wh);color:var(--wh)}
+.nb-y{background:var(--y);color:var(--bk)}
+.nb-y:hover{background:#ffc233}
+.nhbg{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+
+/* HAZARD STRIPE */
+.haz{height:8px;background:repeating-linear-gradient(-55deg,var(--y) 0,var(--y) 14px,var(--bk) 14px,var(--bk) 24px)}
+.haz.thin{height:5px}
+.haz.fixed{position:fixed;top:68px;left:0;right:0;z-index:998}
+
+/* HERO SPLIT */
+.hero{height:100vh;min-height:600px;display:flex;overflow:hidden;padding-top:76px}
+.hero-l{
+  width:45%;background:var(--g);display:flex;flex-direction:column;
+  justify-content:center;padding:60px 56px;position:relative;overflow:hidden;flex-shrink:0
+}
+.hero-l::before{
+  content:'CHIMES';position:absolute;bottom:-30px;left:-10px;
+  font-family:'Archivo',sans-serif;font-size:min(200px,18vw);font-weight:900;
+  color:rgba(0,0,0,.13);line-height:1;letter-spacing:-.04em;
+  pointer-events:none;white-space:nowrap;z-index:0
+}
+.hero-l>*{position:relative;z-index:1}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--y);margin-bottom:16px;display:block}
+.hero-h1{font-family:'Archivo',sans-serif;font-size:clamp(42px,4.2vw,74px);font-weight:900;line-height:.97;color:var(--wh);margin-bottom:22px;letter-spacing:-.025em}
+.hero-h1 em{color:var(--y);font-style:normal;display:block}
+.hero-sub{font-size:15px;line-height:1.65;color:rgba(255,255,255,.72);max-width:360px;margin-bottom:36px}
+.btn-y{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;background:var(--y);color:var(--bk);text-decoration:none;transition:background .2s;align-self:flex-start}
+.btn-y:hover{background:#ffc233}
+.btn-y svg{transition:transform .2s}
+.btn-y:hover svg{transform:translateX(4px)}
+.btn-wout{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:14px 26px;border:2px solid rgba(255,255,255,.35);color:var(--wh);text-decoration:none;transition:all .2s;align-self:flex-start}
+.btn-wout:hover{background:rgba(255,255,255,.08);border-color:var(--wh)}
+.hero-r{flex:1;background-size:cover;background-position:center}
+.split-line{position:absolute;left:45%;top:76px;bottom:0;width:5px;background:var(--y);z-index:10}
+
+/* STATS */
+.stats-band{background:var(--bk);border-top:1px solid rgba(39,144,66,.3);border-bottom:1px solid rgba(39,144,66,.3)}
+.stats-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 36px}
+.stat{padding:52px 20px;text-align:center;border-right:1px solid rgba(39,144,66,.2)}
+.stat:last-child{border-right:none}
+.stn{font-family:'Archivo',sans-serif;font-size:clamp(46px,6vw,86px);font-weight:900;color:var(--y);line-height:1;display:block;margin-bottom:8px}
+.stl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.38)}
+
+/* SPLIT PANELS */
+.split{display:flex;min-height:600px;overflow:hidden}
+.split.rev{flex-direction:row-reverse}
+.simg{flex:1;background-size:cover;background-position:center;min-height:500px}
+.stxt{width:46%;display:flex;flex-direction:column;justify-content:center;padding:72px 64px;position:relative;overflow:hidden;flex-shrink:0}
+.stxt.g{background:var(--g)}
+.stxt.n{background:var(--n)}
+.stxt.bk{background:var(--bk)}
+.ghost{position:absolute;font-family:'Archivo',sans-serif;font-weight:900;line-height:.9;
+  pointer-events:none;letter-spacing:-.05em;white-space:nowrap;z-index:0;
+  bottom:-.15em;right:-.05em;font-size:clamp(120px,22vw,340px);color:rgba(0,0,0,.14)}
+.ghost.lt{color:rgba(255,255,255,.05)}
+.ghost.y{color:rgba(255,180,0,.07)}
+.stxt>*{position:relative;z-index:1}
+.sh2{font-family:'Archivo',sans-serif;font-size:clamp(28px,2.8vw,46px);font-weight:900;line-height:1.01;color:var(--wh);margin-bottom:18px;letter-spacing:-.02em}
+.sh2 em{color:var(--y);font-style:normal}
+.sp{font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.66);margin-bottom:28px;max-width:400px}
+.vals-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.val-tag{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;background:rgba(255,180,0,.12);border:1px solid rgba(255,180,0,.3);color:var(--y)}
+
+/* FLEET */
+.fleet-sec{background:var(--nd);padding:96px 36px;position:relative;overflow:hidden}
+.fleet-sec::before{content:'FLEET';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Archivo',sans-serif;font-weight:900;font-size:min(280px,28vw);color:rgba(255,255,255,.025);letter-spacing:-.06em;pointer-events:none;white-space:nowrap;z-index:0}
+.fi{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+.fhd{margin-bottom:52px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.fhd h2{font-family:'Archivo',sans-serif;font-size:clamp(30px,3.5vw,52px);font-weight:900;color:var(--wh);line-height:1;letter-spacing:-.02em}
+.fhd .eyebrow{color:var(--g)}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.fc{position:relative;overflow:hidden;cursor:pointer}
+.fci{height:270px;background-size:cover;background-position:center;transition:transform .5s ease}
+.fc:hover .fci{transform:scale(1.07)}
+.fco{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,8,.94) 0%,rgba(8,12,8,.25) 55%,transparent 100%);transition:background .3s}
+.fc:hover .fco{background:linear-gradient(to top,rgba(8,12,8,.97) 0%,rgba(8,12,8,.5) 60%,rgba(39,144,66,.18) 100%)}
+.fcb{position:absolute;bottom:0;left:0;right:0;padding:18px 20px}
+.fcm{font-family:'Archivo',sans-serif;font-size:15px;font-weight:900;color:var(--wh);line-height:1;margin-bottom:3px}
+.fct{font-size:10px;font-weight:700;color:var(--y);letter-spacing:.1em;text-transform:uppercase}
+.fcg{position:absolute;bottom:-.15em;right:-.03em;font-family:'Archivo',sans-serif;font-weight:900;font-size:110px;color:rgba(255,255,255,.055);line-height:1;pointer-events:none;z-index:1;transition:color .3s}
+.fc:hover .fcg{color:rgba(39,144,66,.14)}
+.badge-new{position:absolute;top:10px;right:10px;background:var(--y);color:var(--bk);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;z-index:3}
+
+/* VIDEO BAND */
+.vband{position:relative;height:500px;overflow:hidden;display:flex;align-items:center}
+.vband video,.vbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbg{background-size:cover;background-position:center}
+.vov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,8,.85) 0%,rgba(39,144,66,.28) 100%)}
+.vc{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;gap:48px;width:100%}
+.vt h2{font-family:'Archivo',sans-serif;font-size:clamp(48px,7vw,110px);font-weight:900;line-height:.9;letter-spacing:-.03em;color:var(--wh)}
+.vt h2 span{color:var(--y);display:block}
+.vsub{max-width:360px;flex-shrink:0}
+.vsub p{font-size:15px;color:rgba(255,255,255,.62);line-height:1.72;margin-bottom:26px}
+
+/* FULL BLEED PARALLAX */
+.fbl{position:relative;padding:120px 36px;background-size:cover;background-position:center;background-attachment:fixed}
+.fblov{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,12,8,.94) 0%,rgba(8,12,8,.65) 50%,rgba(8,12,8,.2) 100%)}
+.fbli{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+.mega{font-family:'Archivo',sans-serif;font-size:clamp(38px,6vw,96px);font-weight:900;color:var(--wh);line-height:.94;letter-spacing:-.025em;margin-bottom:24px;max-width:760px}
+.mega em{color:var(--y);font-style:normal}
+
+/* INDUSTRIES */
+.ind-sec{background:var(--g);padding:96px 36px;position:relative;overflow:hidden}
+.ind-inner{max-width:1400px;margin:0 auto}
+.ind-hd{margin-bottom:48px}
+.ind-hd h2{font-family:'Archivo',sans-serif;font-size:clamp(28px,3vw,48px);font-weight:900;color:var(--wh);line-height:1;letter-spacing:-.02em}
+.ind-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.ii{background:rgba(0,0,0,.2);padding:40px 22px;text-align:center;transition:background .2s}
+.ii:hover{background:rgba(0,0,0,.45)}
+.ii svg{width:38px;height:38px;color:var(--y);margin:0 auto 14px;display:block}
+.ii-nm{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+
+/* CONTACT */
+.ctsec{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.ctl{background:var(--g);padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.ctl::before{content:'?';position:absolute;bottom:-.2em;right:-.05em;font-family:'Archivo',sans-serif;font-size:min(480px,45vw);font-weight:900;color:rgba(0,0,0,.1);line-height:1;pointer-events:none}
+.ctl>*{position:relative;z-index:1}
+.ctr{background:var(--bk);padding:80px 60px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(39,144,66,.3)}
+.cth{font-family:'Archivo',sans-serif;font-size:clamp(30px,3.2vw,52px);font-weight:900;color:var(--wh);line-height:1;letter-spacing:-.02em;margin-bottom:18px}
+.cth em{color:var(--y);font-style:normal}
+.ctp{font-size:15px;color:rgba(255,255,255,.68);line-height:1.7;margin-bottom:30px}
+.cti{display:flex;flex-direction:column;gap:14px}
+.ctrow{display:flex;align-items:center;gap:11px}
+.ctrow svg{color:var(--y);flex-shrink:0}
+.ctrow a,.ctrow span{font-size:14px;color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
+.ctrow a.big{font-size:20px;font-weight:700;color:var(--wh)}
+.ctrow a:hover{color:var(--y)}
+.qform{display:flex;flex-direction:column;gap:13px}
+.qrow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.qf{display:flex;flex-direction:column;gap:5px}
+.qf label{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.38)}
+.qf input,.qf select,.qf textarea{padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(39,144,66,.3);color:var(--wh);font-family:'Barlow',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.qf input::placeholder,.qf textarea::placeholder{color:rgba(255,255,255,.22)}
+.qf input:focus,.qf select:focus,.qf textarea:focus{border-color:var(--g)}
+.qf select option{background:#080c08}
+.qf textarea{resize:vertical;min-height:88px}
+.qsub{font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 30px;background:var(--g);color:var(--wh);border:none;cursor:pointer;align-self:flex-start;transition:background .2s}
+.qsub:hover{background:var(--gd)}
+
+/* MAP SECTION */
+.mapsec{display:grid;grid-template-columns:1fr 1.6fr;min-height:480px;background:var(--nd)}
+.mapinfo{padding:72px 60px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(39,144,66,.25)}
+.mapinfo h2{font-family:'Archivo',sans-serif;font-size:clamp(26px,2.8vw,40px);font-weight:900;color:var(--wh);line-height:1.02;letter-spacing:-.02em;margin-bottom:8px}
+.mapinfo h2 em{color:var(--y);font-style:normal}
+.mapinfo .eyebrow{color:var(--g);margin-bottom:14px}
+.mapinfo .subdesc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:32px;max-width:340px}
+.maprows{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+.maprow{display:flex;align-items:flex-start;gap:12px}
+.maprow svg{color:var(--y);flex-shrink:0;margin-top:1px}
+.maprow-body{}
+.maprow-label{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:2px}
+.maprow-val{font-size:14px;color:rgba(255,255,255,.78);line-height:1.5}
+.maprow-val a{color:var(--g);text-decoration:none}
+.maprow-val a:hover{color:var(--y)}
+.service-area{display:flex;flex-wrap:wrap;gap:6px;margin-top:24px}
+.area-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border:1px solid rgba(39,144,66,.4);color:rgba(39,144,66,.85)}
+.mapframe{position:relative;overflow:hidden}
+.mapframe iframe{display:block;width:100%;height:100%;border:none;filter:saturate(1.1) contrast(1.05)}
+.mapframe::after{content:'';position:absolute;inset:0;pointer-events:none;border:1px solid rgba(39,144,66,.2)}
+/* Darken the map iframe with a blend overlay trick */
+.mapframe-overlay{position:absolute;inset:0;background:rgba(22,51,94,.12);pointer-events:none;mix-blend-mode:multiply;z-index:1}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:990;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
+.wa-float svg{width:28px;height:28px;fill:white}
+.wa-pulse{
+  position:absolute;inset:-6px;border-radius:50%;
+  background:rgba(37,211,102,.35);
+  animation:wa-ring 2.4s ease-out infinite;
+}
+@keyframes wa-ring{0%{transform:scale(.9);opacity:.8}70%{transform:scale(1.3);opacity:0}100%{transform:scale(1.3);opacity:0}}
+.wa-tooltip{
+  position:absolute;right:68px;top:50%;transform:translateY(-50%);
+  background:rgba(8,12,8,.95);color:var(--wh);
+  font-size:12px;font-weight:600;white-space:nowrap;
+  padding:7px 14px;border:1px solid rgba(37,211,102,.3);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.wa-float:hover .wa-tooltip{opacity:1}
+
+@media(max-width:1060px){
+  .mapsec{grid-template-columns:1fr}
+  .mapframe{height:360px}
+  .mapinfo{padding:52px 36px}
+}
+
+/* FOOTER */
+footer{background:#040604;border-top:1px solid rgba(39,144,66,.22);padding:60px 36px 36px}
+.ftwrap{max-width:1400px;margin:0 auto}
+.fttop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:44px}
+.ftbrand img{height:28px;filter:brightness(0) invert(1);margin-bottom:14px}
+.ftbrand p{font-size:13px;color:rgba(255,255,255,.32);line-height:1.65;margin-bottom:16px;max-width:240px}
+.ftsoc{display:flex;gap:8px}
+.ftsoc a{width:32px;height:32px;border:1px solid rgba(39,144,66,.28);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.32);text-decoration:none;transition:all .2s}
+.ftsoc a:hover{border-color:var(--g);color:var(--g)}
+.ftcol h5{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:16px}
+.ftcol ul{list-style:none}
+.ftcol li{margin-bottom:9px}
+.ftcol a{font-size:13px;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s}
+.ftcol a:hover{color:var(--g)}
+.ftbot{border-top:1px solid rgba(255,255,255,.055);padding-top:22px;display:flex;align-items:center;justify-content:space-between}
+.ftbot p{font-size:12px;color:rgba(255,255,255,.18)}
+.ftvals{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(39,144,66,.45)}
+.ftvals b{color:rgba(39,144,66,.85)}
+
+/* ANIM */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fl{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
+.fr{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
+.fu.vis,.fl.vis,.fr.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1060px){
+  .nnav{display:none}
+  .nnav.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:68px;left:0;right:0;background:var(--bk);padding:16px 24px 24px;border-bottom:1px solid rgba(39,144,66,.25)}
+  .nhbg{display:block}
+  .hero{flex-direction:column;height:auto}
+  .hero-l{width:100%;min-height:65vh}
+  .hero-r{width:100%;height:360px;flex:none}
+  .split-line{display:none}
+  .split,.split.rev{flex-direction:column}
+  .simg{height:380px;min-height:auto}
+  .stxt{width:100%}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .ind-grid{grid-template-columns:repeat(3,1fr)}
+  .ctsec{grid-template-columns:1fr}
+  .ctl,.ctr{padding:60px 36px}
+  .fttop{grid-template-columns:1fr 1fr;gap:36px}
+  .vc{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:640px){
+  .nw{padding:0 20px}
+  .nctas .nb-out{display:none}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .qrow{grid-template-columns:1fr}
+  .fttop{grid-template-columns:1fr;gap:28px}
+  .ftbot{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="nw">
+    <a class="nlogo" href="#"><img src="Logos/Official_Chimes_Extended_Logo.png" alt="Chimes Crane Hire"></a>
+    <button class="nhbg" id="hbg" aria-label="Menu">
+      <svg width="22" height="15" viewBox="0 0 22 15" fill="none">
+        <rect y="0" width="22" height="2.5" rx="1" fill="white"/>
+        <rect y="6" width="22" height="2.5" rx="1" fill="white"/>
+        <rect y="12" width="22" height="2.5" rx="1" fill="white"/>
+      </svg>
+    </button>
+    <nav class="nnav" id="nav">
+      <a href="#" class="active">Home</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#location">Find Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nctas">
+      <a href="tel:+27116261110" class="nb nb-out">+27 11 626 1110</a>
+      <a href="#contact" class="nb nb-y">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<div class="haz fixed"></div>
+
+<!-- HERO -->
+<div class="hero" style="margin-top:76px;">
+  <div class="hero-l fl">
+    <span class="eyebrow">Est. 2003 &middot; Gauteng &middot; South Africa</span>
+    <h1 class="hero-h1">Gauteng's<br>Crane Hire<br><em>Experts.</em></h1>
+    <p class="hero-sub">From 25 to 400 tons. Certified operators. Expert riggers. 24/7 availability. One call away.</p>
+    <a href="#contact" class="btn-y">
+      Hire a Crane
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <div class="hero-r fr" style="background-image:url('Cinematic%20Images/industrial%20%231.png');background-position:center;"></div>
+  <div class="split-line"></div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat fu"><span class="stn" data-to="23">0</span><span class="stl">Years on the Ground</span></div>
+    <div class="stat fu"><span class="stn">400<small style="font-size:.45em;opacity:.6">T</small></span><span class="stl">Max Lifting Capacity</span></div>
+    <div class="stat fu"><span class="stn" data-to="24">0</span><span class="stl">Crane Fleet Units</span></div>
+    <div class="stat fu"><span class="stn">24/7</span><span class="stl">Always On Call</span></div>
+  </div>
+</div>
+
+<!-- SPLIT A: tandem lift left | green right -->
+<div class="split" id="services">
+  <div class="simg fr" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%231.png');"></div>
+  <div class="stxt g fl">
+    <span class="ghost dark">T</span>
+    <span class="eyebrow">What We Do</span>
+    <h2 class="sh2">We lift what<br>others <em>won't.</em></h2>
+    <p class="sp">Tandem lifts. Abnormal loads. 400-ton operations at first light. Our certified operators execute where others just plan — with CAD rigging, full safety compliance, and zero excuses.</p>
+    <a href="#contact" class="btn-y">
+      Start a Project
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="haz thin"></div>
+
+<!-- FLEET -->
+<section class="fleet-sec" id="fleet">
+  <div class="fi">
+    <div class="fhd fu">
+      <div>
+        <span class="eyebrow" style="color:var(--g)">Our Fleet</span>
+        <h2>8 cranes.<br>Zero excuses.</h2>
+      </div>
+      <a href="#contact" class="btn-y">Check Availability &rarr;</a>
+    </div>
+    <div class="fgrid">
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/CCH2.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 40G-2</div><div class="fct">40 Ton &middot; All Terrain</div></div><span class="fcg">40</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/c8.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 50G-3</div><div class="fct">50 Ton &middot; All Terrain</div></div><span class="fcg">50</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/C5%20(new%20crane)%20image.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 70G-4</div><div class="fct">70 Ton &middot; All Terrain</div></div><span class="fcg">70</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/Ultra%20%231.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 90G-4</div><div class="fct">90 Ton &middot; All Terrain</div></div><span class="fcg">90</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%232.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 110G-5</div><div class="fct">110 Ton &middot; All Terrain</div></div><span class="fcg">110</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%233.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 130G-5</div><div class="fct">130 Ton &middot; All Terrain</div></div><span class="fcg">130</span></div>
+      <div class="fc fu"><div class="fci" style="background-image:url('Cinematic%20Images/crane%20LBBD%20%231.png');"></div><div class="fco"></div><div class="fcb"><div class="fcm">ATF 220G-5</div><div class="fct">220 Ton &middot; Heavy Lift</div></div><span class="fcg">220</span></div>
+      <div class="fc fu">
+        <div class="fci" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%234.png');"></div>
+        <div class="fco" style="background:linear-gradient(to top,rgba(8,12,8,.97) 0%,rgba(8,12,8,.4) 55%,rgba(255,180,0,.18) 100%);"></div>
+        <div class="badge-new">NEW</div>
+        <div class="fcb"><div class="fcm">ATF 400G-6</div><div class="fct">400 Ton &middot; Mega Lift</div></div>
+        <span class="fcg" style="color:rgba(255,180,0,.12)">400</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="haz thin"></div>
+
+<!-- SPLIT B: navy left | bulldozer lift right -->
+<div class="split rev" id="about">
+  <div class="stxt n fl">
+    <span class="ghost y">23</span>
+    <span class="eyebrow">Who We Are</span>
+    <h2 class="sh2">Owner-managed.<br><em>Operator</em> trusted.</h2>
+    <p class="sp">Founded in 2003 by Paul Chimes and Elias Nyathi — who built and sold Beacon Crane Hire to a listed company in 1997. Today, 23 years in, we operate from Germiston with a modern Liebherr fleet and the same four values we started with.</p>
+    <div class="vals-row">
+      <span class="val-tag">Loyalty</span>
+      <span class="val-tag">Integrity</span>
+      <span class="val-tag">Foresight</span>
+      <span class="val-tag">Excellence</span>
+    </div>
+    <a href="#contact" class="btn-wout">Our Story &rarr;</a>
+  </div>
+  <div class="simg fr" style="background-image:url('Cinematic%20Images/new%20barlows%20pix.png');"></div>
+</div>
+
+<!-- VIDEO BAND -->
+<div class="vband">
+  <video class="vid" autoplay muted loop playsinline
+    src="Cinematic%20Images/video%201.mp4"
+    onerror="this.style.display='none';document.getElementById('vfb').style.display='block'">
+  </video>
+  <div id="vfb" class="vbg" style="display:none;background-image:url('Cinematic%20Images/industrial%20%231.png');"></div>
+  <div class="vov"></div>
+  <div class="vc">
+    <div class="vt fu">
+      <h2>Cranes<br><span>4 Life.</span></h2>
+    </div>
+    <div class="vsub fu">
+      <p>Loyalty. Integrity. Foresight. Excellence. Since 2003, these four words have driven every decision, every lift, every operator on every site across Gauteng.</p>
+      <a href="#contact" class="btn-y">Hire a Crane &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- SPLIT C: team photo left | dark right -->
+<div class="split">
+  <div class="simg fl" style="background-image:url('Cinematic%20Images/Chimes%20Team%20%231.png');background-position:center top;"></div>
+  <div class="stxt bk fr">
+    <span class="ghost lt" style="font-size:clamp(80px,16vw,240px)">TEAM</span>
+    <span class="eyebrow">Our People</span>
+    <h2 class="sh2">Trained.<br>Certified.<br><em>Unstoppable.</em></h2>
+    <p class="sp">Paul Chimes. Elias Nyathi. Hilton Levy. Nadine Goosen. 16 professionals who take every lift personally — with certified operators, riggers, and safety officers on every single job.</p>
+    <a href="#contact" class="btn-y">Get In Touch &rarr;</a>
+  </div>
+</div>
+
+<!-- INDUSTRIES -->
+<section class="ind-sec">
+  <div class="ind-inner">
+    <div class="ind-hd fu">
+      <span class="eyebrow" style="color:rgba(255,255,255,.5)">Industries We Serve</span>
+      <h2>Built for<br>the work.</h2>
+    </div>
+    <div class="ind-grid fu">
+      <div class="ii">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="30" width="32" height="7" rx="1"/><rect x="8" y="20" width="10" height="10"/><rect x="22" y="13" width="14" height="17"/><line x1="22" y1="30" x2="22" y2="13"/></svg>
+        <div class="ii-nm">Construction</div>
+      </div>
+      <div class="ii">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="20" cy="20" r="6"/><line x1="20" y1="5" x2="20" y2="14"/><line x1="20" y1="26" x2="20" y2="35"/><line x1="5" y1="20" x2="14" y2="20"/><line x1="26" y1="20" x2="35" y2="20"/><line x1="8.5" y1="8.5" x2="14.7" y2="14.7"/><line x1="25.3" y1="25.3" x2="31.5" y2="31.5"/><line x1="31.5" y1="8.5" x2="25.3" y2="14.7"/><line x1="14.7" y1="25.3" x2="8.5" y2="31.5"/></svg>
+        <div class="ii-nm">Mining</div>
+      </div>
+      <div class="ii">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="30" r="5"/><circle cx="29" cy="30" r="5"/><line x1="11" y1="25" x2="11" y2="8"/><line x1="29" y1="25" x2="29" y2="14"/><line x1="11" y1="8" x2="29" y2="8"/><path d="M11 14 L20 10 L29 14"/></svg>
+        <div class="ii-nm">Petrochemical</div>
+      </div>
+      <div class="ii">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="20" y1="5" x2="20" y2="35"/><line x1="5" y1="20" x2="35" y2="20"/><line x1="9" y1="9" x2="31" y2="31"/><line x1="31" y1="9" x2="9" y2="31"/><circle cx="20" cy="20" r="4"/></svg>
+        <div class="ii-nm">Telecoms</div>
+      </div>
+      <div class="ii">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="20" y1="35" x2="20" y2="14"/><line x1="13" y1="20" x2="20" y2="14"/><line x1="27" y1="20" x2="20" y2="14"/><line x1="9" y1="29" x2="13" y2="23"/><line x1="31" y1="29" x2="27" y2="23"/><ellipse cx="20" cy="35" rx="11" ry="3"/></svg>
+        <div class="ii-nm">Renewable Energy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL BLEED PARALLAX STATEMENT -->
+<div class="fbl" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%231.png');">
+  <div class="fblov"></div>
+  <div class="fbli fu">
+    <span class="eyebrow">BEE Level 4 Contributor &middot; Est. 2003</span>
+    <h2 class="mega">Cranes aren't<br>our business.<br><em>They're our life.</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.6);max-width:480px;line-height:1.7;margin-bottom:36px;">Nasmith Avenue, Jupiter Industrial, Germiston. Monday to Sunday. Rain, fog, or full sun.</p>
+    <a href="#contact" class="btn-y" style="font-size:12px;padding:16px 34px;">
+      Get a Quote Today &rarr;
+    </a>
+  </div>
+</div>
+
+<!-- MAP / FIND US -->
+<div class="mapsec" id="location">
+  <div class="mapinfo fu">
+    <span class="eyebrow">Find Us</span>
+    <h2>We're in<br><em>Germiston.</em><br>We work everywhere.</h2>
+    <p class="subdesc">Based in Jupiter Industrial, Germiston — our cranes operate across Gauteng and beyond. If you can name the site, we can get there.</p>
+    <div class="maprows">
+      <div class="maprow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="maprow-body">
+          <div class="maprow-label">Yard Address</div>
+          <div class="maprow-val">Nasmith Avenue, Jupiter Industrial<br>Germiston, Gauteng, 1401</div>
+        </div>
+      </div>
+      <div class="maprow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        <div class="maprow-body">
+          <div class="maprow-label">Phone</div>
+          <div class="maprow-val"><a href="tel:+27116261110">+27 11 626 1110</a></div>
+        </div>
+      </div>
+      <div class="maprow">
+        <!-- WhatsApp icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div class="maprow-body">
+          <div class="maprow-label">WhatsApp</div>
+          <div class="maprow-val"><a href="https://wa.me/27116261110?text=Hi%20Chimes%2C%20I%27d%20like%20to%20get%20a%20quote" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+        </div>
+      </div>
+      <div class="maprow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="maprow-body">
+          <div class="maprow-label">Availability</div>
+          <div class="maprow-val">Monday – Sunday, 24/7<br>Emergency callouts always available</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="maprow-label" style="margin-bottom:8px;">Service Area</div>
+      <div class="service-area">
+        <span class="area-tag">Johannesburg</span>
+        <span class="area-tag">Germiston</span>
+        <span class="area-tag">Ekurhuleni</span>
+        <span class="area-tag">Pretoria</span>
+        <span class="area-tag">East Rand</span>
+        <span class="area-tag">West Rand</span>
+        <span class="area-tag">Vaal</span>
+        <span class="area-tag">Gauteng-wide</span>
+      </div>
+    </div>
+  </div>
+  <div class="mapframe">
+    <!-- Pinned on Chimes Crane Hire, 5 Nasmith Ave, Jupiter, Germiston (-26.21692, 28.14335) -->
+    <iframe
+      src="https://maps.google.com/maps?q=Chimes+Crane+Hire,+5+Nasmith+Ave,+Jupiter,+Germiston,+1401&ll=-26.21692,28.14335&z=17&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Chimes Crane Hire — 5 Nasmith Ave, Jupiter Industrial, Germiston"
+      allowfullscreen
+      style="width:100%;height:100%;min-height:480px;border:none;">
+    </iframe>
+    <div class="mapframe-overlay"></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="ctsec" id="contact">
+  <div class="ctl">
+    <span class="eyebrow" style="color:rgba(255,255,255,.55)">Get In Touch</span>
+    <h2 class="cth">Ready to<br><em>lift?</em></h2>
+    <p class="ctp">Tell us about your project. We respond within the hour during business hours.</p>
+    <div class="cti">
+      <div class="ctrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        <a href="tel:+27116261110" class="big">+27 11 626 1110</a>
+      </div>
+      <div class="ctrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <a href="mailto:office@chimes.co.za">office@chimes.co.za</a>
+      </div>
+      <div class="ctrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="#location" style="font-size:14px;color:rgba(255,255,255,.75);text-decoration:none;">Nasmith Ave, Jupiter Industrial, Germiston</a>
+      </div>
+      <div class="ctrow" style="margin-top:8px;padding:14px 16px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">WhatsApp Us</div>
+          <a href="https://wa.me/27116261110?text=Hi%20Chimes%2C%20I%27d%20like%20to%20get%20a%20quote" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:#25D366;text-decoration:none;">Chat Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ctr">
+    <form class="qform" onsubmit="hf(event)">
+      <div class="qrow">
+        <div class="qf"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+        <div class="qf"><label>Company</label><input type="text" placeholder="Company name"></div>
+      </div>
+      <div class="qrow">
+        <div class="qf"><label>Phone</label><input type="tel" placeholder="+27 xx xxx xxxx" required></div>
+        <div class="qf"><label>Email</label><input type="email" placeholder="you@company.co.za" required></div>
+      </div>
+      <div class="qf">
+        <label>Crane Required</label>
+        <select>
+          <option value="">Select capacity...</option>
+          <option>40 Ton &ndash; ATF 40G-2</option>
+          <option>50 Ton &ndash; ATF 50G-3</option>
+          <option>70 Ton &ndash; ATF 70G-4</option>
+          <option>90 Ton &ndash; ATF 90G-4</option>
+          <option>110 Ton &ndash; ATF 110G-5</option>
+          <option>130 Ton &ndash; ATF 130G-5</option>
+          <option>220 Ton &ndash; ATF 220G-5</option>
+          <option>400 Ton &ndash; ATF 400G-6</option>
+          <option>Not sure &ndash; please advise</option>
+        </select>
+      </div>
+      <div class="qf">
+        <label>Project Details</label>
+        <textarea placeholder="Location, load weight, height, access, dates..."></textarea>
+      </div>
+      <button type="submit" class="qsub" id="qsb">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftwrap">
+    <div class="fttop">
+      <div class="ftbrand">
+        <img src="Logos/Official_Chimes_Extended_Logo.png" alt="Chimes Crane Hire">
+        <p>Gauteng's trusted crane hire experts since 2003. Owner-managed. Operator-led. Cranes 4 Life.</p>
+        <div class="ftsoc">
+          <a href="https://www.facebook.com/ChimesCraneHire/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftcol">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#fleet">Crane Fleet</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Mobile Crane Hire</a></li>
+          <li><a href="#">Rigging Services</a></li>
+          <li><a href="#">Heavy Lifting</a></li>
+          <li><a href="#">Turnkey Projects</a></li>
+          <li><a href="#">Renewable Energy</a></li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+27116261110">+27 11 626 1110</a></li>
+          <li><a href="mailto:office@chimes.co.za">office@chimes.co.za</a></li>
+          <li><a href="#">Nasmith Ave, Germiston</a></li>
+          <li><a href="#">chimescranes.co.za</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftbot">
+      <p>&copy; 2026 Chimes Crane Hire (Pty) Ltd. All rights reserved.</p>
+      <div class="ftvals"><b>Loyalty</b> &middot; <b>Integrity</b> &middot; <b>Foresight</b> &middot; <b>Excellence</b></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/27116261110?text=Hi%20Chimes%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20crane%20hire" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+
+<script>
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40));
+document.getElementById('hbg').addEventListener('click', () => document.getElementById('nav').classList.toggle('open'));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const kids = [...(e.target.parentElement?.children || [e.target])];
+      const i = kids.indexOf(e.target);
+      setTimeout(() => e.target.classList.add('vis'), Math.max(0, i) * 95);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fu,.fl,.fr').forEach(el => obs.observe(el));
+
+function countUp(el, t) {
+  let v = 0, s = t / 55;
+  const tmr = setInterval(() => {
+    v = Math.min(v + s, t);
+    el.textContent = Math.floor(v) + '+';
+    if (v >= t) clearInterval(tmr);
+  }, 20);
+}
+const sobs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const t = parseInt(e.target.dataset.to);
+      if (t) countUp(e.target, t);
+      sobs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-to]').forEach(el => sobs.observe(el));
+
+function hf(e) {
+  e.preventDefault();
+  const b = document.getElementById('qsb');
+  b.textContent = 'Sending...'; b.disabled = true;
+  setTimeout(() => {
+    b.textContent = 'Sent!'; b.style.background = '#16335E';
+    e.target.reset();
+    setTimeout(() => { b.textContent = 'Submit Request'; b.disabled = false; b.style.background = ''; }, 3000);
+  }, 1200);
+}
+</script>
+</body>
+</html>
